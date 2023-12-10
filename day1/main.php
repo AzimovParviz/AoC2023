@@ -28,11 +28,11 @@ $numbers = Numbers::cases();
 
 foreach ($input as $a) {
 	foreach ($numbers as $lit_num) {
-		$a = str_replace($lit_num->name, $lit_num->value, $a);
-		var_dump($a);
+		$a = str_replace($lit_num->name, $lit_num->name[0] . $lit_num->value . $lit_num->name[strlen($lit_num->name) - 1], $a);
 	}
 	//$a = str_replace(array_column(Numbers::cases(), 'name'), "", $a);
 	
+	var_dump($a);
 	foreach (str_split($a) as $li) {
 		if (ord($li) < 58) {
 			$num_str = $num_str . $li;
